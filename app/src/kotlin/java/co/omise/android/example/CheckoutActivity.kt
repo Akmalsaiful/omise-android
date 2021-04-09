@@ -24,12 +24,14 @@ import co.omise.android.ui.AuthorizingPaymentResult
 import co.omise.android.ui.CreditCardActivity
 import co.omise.android.ui.OmiseActivity
 import co.omise.android.ui.PaymentCreatorActivity
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_checkout.amount_edit
 import kotlinx.android.synthetic.main.activity_checkout.authorize_url_button
 import kotlinx.android.synthetic.main.activity_checkout.choose_payment_method_button
 import kotlinx.android.synthetic.main.activity_checkout.credit_card_button
 import kotlinx.android.synthetic.main.activity_checkout.currency_edit
+import kotlinx.android.synthetic.main.activity_checkout.product_image
 
 class CheckoutActivity : AppCompatActivity() {
 
@@ -82,6 +84,8 @@ class CheckoutActivity : AppCompatActivity() {
                 snackbar.setText(throwable.message?.capitalize().orEmpty()).show()
             }
         })
+
+        Glide.with(this).load("https://picsum.photos/id/237/200/300").into(product_image)
     }
 
     private fun choosePaymentMethod() {
